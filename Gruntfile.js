@@ -4,8 +4,8 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     concat: {
       dist: {
-        src: ['app/**/*.js', 'lib/*.js'],
-        dest: 'app/app.js'
+        src: ['app/**/*.js', 'lib/*.js', 'public/**/*.js'],
+        dest: './app.js'
       }
     },
 
@@ -26,14 +26,14 @@ module.exports = function(grunt) {
 
     uglify: {
       build: {
-        src: 'app/app.js',
-        dest: 'app/app.min.js'
+        src: './app.js',
+        dest: './app.min.js'
       }
     },
 
     jshint: {
       files: [
-        'app/**/*.js', 'lib/*.js'
+        'app/**/*.js', 'lib/*.js', 'public/**/*js'
       ],
       options: {
         force: 'true',
@@ -106,6 +106,10 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'jshint',
+    'mochaTest',
+    'concat',
+    'uglify'
   ]);
 
   grunt.registerTask('upload', function(n) {
