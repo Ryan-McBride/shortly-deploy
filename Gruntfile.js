@@ -3,6 +3,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
+      dist: {
+        src: ['app/**/*.js', 'lib/*.js'],
+        dest: 'app/app.js'
+      }
     },
 
     mochaTest: {
@@ -21,11 +25,15 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      build: {
+        src: 'app/app.js',
+        dest: 'app/app.min.js'
+      }
     },
 
     jshint: {
       files: [
-        // Add filespec list here
+        'app/**/*.js', 'lib/*.js'
       ],
       options: {
         force: 'true',
@@ -38,6 +46,10 @@ module.exports = function(grunt) {
     },
 
     cssmin: {
+      // word: {
+      //   src: 'public/style.css',
+      //   dest: 
+      // }
     },
 
     watch: {
@@ -99,6 +111,7 @@ module.exports = function(grunt) {
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
       // add your production server task here
+      // minify
     } else {
       grunt.task.run([ 'server-dev' ]);
     }
@@ -106,6 +119,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deploy', [
     // add your deploy tasks here
+    //
   ]);
 
 
