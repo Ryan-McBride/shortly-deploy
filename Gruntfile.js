@@ -8,11 +8,11 @@ module.exports = function(grunt) {
       dist: {
         files: {
           './app.js' : [
-            'public/lib/*js',
-            'lib/utility.js',
-            'lib/request-handler.js',
+            // 'public/lib/*.js',
+            // 'lib/utility.js',
+            // 'lib/request-handler.js',
             'public/client/*.js',
-            'app/**/*.js'
+            // 'app/**/*.js'
             ]
         }
       }
