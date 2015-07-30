@@ -5,9 +5,9 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: [
+              'public/lib/*js',
               'lib/utility.js',
               'lib/request-handler.js',
-              'public/lib/*js',
               'public/client/*.js',
               'app/**/*.js'
 // '/client/app.js', 
@@ -118,9 +118,9 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'jshint',
-    'concat',
-    'uglify'
+    // 'jshint',
+    // 'concat',
+    // 'uglify'
   ]);
 
   grunt.registerTask('upload', function(n) {
@@ -134,7 +134,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deploy', [
     // add your deploy tasks here
-    //
+    'jshint',
+    'concat',
+    'uglify'
   ]);
 
 
