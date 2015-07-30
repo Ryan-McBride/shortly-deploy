@@ -1,18 +1,23 @@
 module.exports = function(grunt) {
 
+  'use strict';
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat_in_order: {
       dist: {
-        //src: [
         files: {
           './app.js' : [
-              'public/lib/*js',
-              'lib/utility.js',
-              'lib/request-handler.js',
-              'public/client/*.js',
-              'app/**/*.js'
-              ]
+            'public/lib/*js',
+            'lib/utility.js',
+            'lib/request-handler.js',
+            'public/client/*.js',
+            'app/**/*.js'
+            ]
+        }
+      }
+    },
+        //src: [
 // '/client/app.js', 
 // '/client/link.js', 
 // '/client/links.js', 
@@ -21,8 +26,6 @@ module.exports = function(grunt) {
 // '/client/createLinkView.js', '/client/router.js'
           //    ],
         //dest: './app.js'
-      }
-    },
 
     mochaTest: {
       test: {
