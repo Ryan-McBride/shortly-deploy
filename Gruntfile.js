@@ -5,9 +5,11 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: [
-              'public/**/*.js',
-              'lib/*.js',
-              'app/**/*.js'
+              'app/**/*.js',
+              'lib/utility.js',
+              'lib/request-handler.js',
+              'public/lib/*js',
+              'public/client/*.js'
 // '/client/app.js', 
 // '/client/link.js', 
 // '/client/links.js', 
