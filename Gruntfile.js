@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         src: [
               'public/**/*.js',
               // 'lib/*.js'
-              'app/**/*.js', 
+              'app/**/*.js'
 // '/client/app.js', 
 // '/client/link.js', 
 // '/client/links.js', 
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
     uglify: {
       build: {
         src: './app.js',
-        dest: './app.min.js'
+        dest: './public/app.min.js'
       }
     },
 
