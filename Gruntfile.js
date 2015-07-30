@@ -2,22 +2,25 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    concat: {
+    concat_in_order: {
       dist: {
-        src: [
+        //src: [
+        files: {
+          './app.js' : [
               'public/lib/*js',
               'lib/utility.js',
               'lib/request-handler.js',
               'public/client/*.js',
               'app/**/*.js'
+              ]
 // '/client/app.js', 
 // '/client/link.js', 
 // '/client/links.js', 
 // '/client/linkView.js', 
 // '/client/linksView.js', 
 // '/client/createLinkView.js', '/client/router.js'
-              ],
-        dest: './app.js'
+          //    ],
+        //dest: './app.js'
       }
     },
 
@@ -95,6 +98,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-nodemon');
+  grunt.loadNpmTasks('grunt-concat-in-order');
 
   grunt.registerTask('server-dev', function (target) {
     // Running nodejs in a different process and displaying output on the main console
@@ -135,7 +139,7 @@ module.exports = function(grunt) {
   grunt.registerTask('deploy', [
     // add your deploy tasks here
     'jshint',
-    'concat',
+    'concat_in_order',
     'uglify'
   ]);
 
