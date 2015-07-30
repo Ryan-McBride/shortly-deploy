@@ -122,9 +122,9 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
-    // 'jshint',
-    // 'concat',
-    // 'uglify'
+    'jshint',
+    'concat_in_order',
+    'uglify'
   ]);
 
   grunt.registerTask('upload', function(n) {
@@ -138,9 +138,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deploy', [
     // add your deploy tasks here
-    'jshint',
-    'concat_in_order',
-    'uglify'
   ]);
 
 
