@@ -7,25 +7,10 @@ module.exports = function(grunt) {
     concat_in_order: {
       dist: {
         files: {
-          './app.js' : [
-            // 'public/lib/*.js',
-            // 'lib/utility.js',
-            // 'lib/request-handler.js',
-            'public/client/*.js',
-            // 'app/**/*.js'
-            ]
+          './app.js' : ['public/client/*.js']
         }
       }
     },
-        //src: [
-// '/client/app.js', 
-// '/client/link.js', 
-// '/client/links.js', 
-// '/client/linkView.js', 
-// '/client/linksView.js', 
-// '/client/createLinkView.js', '/client/router.js'
-          //    ],
-        //dest: './app.js'
 
     mochaTest: {
       test: {
@@ -89,6 +74,11 @@ module.exports = function(grunt) {
 
     shell: {
       prodServer: {
+        command: [
+        'azure site scale mode standard shortly-ryan-chris',
+        'git push azure master',
+        'azure site scale mode free shortly-ryan-chris'
+        ].join('&&')
       }
     },
   });
@@ -132,8 +122,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
-      // add your production server task here
-      // minify
+      'shell'
     } else {
       grunt.task.run([ 'server-dev' ]);
     }
