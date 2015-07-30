@@ -73,11 +73,11 @@ module.exports = function(grunt) {
     },
 
     shell: {
-      prodServer: {
+      multiple: {
         command: [
         'azure site scale mode standard shortly-ryan-chris',
         'git push azure master',
-        'azure site scale mode free shortly-ryan-chris'
+        'azure site scale mode free shortly-ryan-chris',
         ].join('&&')
       }
     },
@@ -122,7 +122,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
-      'shell'
+      grunt.task.run(['shell:multiple'])
     } else {
       grunt.task.run([ 'server-dev' ]);
     }
